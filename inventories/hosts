@@ -1,0 +1,2 @@
+[private]
+localhost ansible_connection=local ansible_user=teaall

@@ -1,0 +1,8 @@
+- name: Converge
+  hosts: all
+
+  tasks:
+    - name: Test Role | Install
+      ansible.builtin.include_role:
+        name: vscode
+        tasks_from: install

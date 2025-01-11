@@ -1,0 +1,30 @@
+{
+  "name": "Ansible Dev Container",
+  "dockerFile": "Dockerfile",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "sudo update-alternatives --set iptables /usr/sbin/iptables-nft",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.ansible"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": true,
+          "source.organizeImports": true,
+          "source.sortMembers": true
+        }
+      }
+    }
+  },
+  "runArgs": [
+    "--init",
+    "--privileged"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ]
+}

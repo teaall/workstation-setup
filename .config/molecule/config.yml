@@ -1,0 +1,8 @@
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: molecule-redhat
+    image: fedora:39
+    pre_build_image: false

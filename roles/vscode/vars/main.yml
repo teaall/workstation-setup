@@ -1,0 +1,5 @@
+vscode_supported_os_families:
+  - RedHat
+
+vscode_supported_os_distributions:
+  - Undefined
