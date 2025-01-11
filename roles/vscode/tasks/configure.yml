@@ -1,0 +1,17 @@
+- name: Ensure the directory for VS Code user settings exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/Code/User"
+    state: directory
+    mode: "0755"
+
+- name: Copy VS Code settings.json
+  ansible.builtin.copy:
+    src: vsc_user_settings.json # Path to your local settings.json
+    dest: "/home/teaall/.config/Code/User/settings.json"
+    mode: "0644"
+
+- name: Install VS Code extension
+  ansible.builtin.command: code --install-extension "{{ item }}"
+  loop: "{{ vscode_extensions }}"
+  register: install_result
+  changed_when: install_result.rc == 0

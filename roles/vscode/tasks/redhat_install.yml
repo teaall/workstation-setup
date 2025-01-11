@@ -1,0 +1,19 @@
+- name: Redhat family | Adding repository {{ vscode_rh_repo_url }}
+  become: true
+  become_user: root
+  ansible.builtin.yum_repository:
+    name: "{{ vscode_rh_repo_name }}"
+    description: "{{ vscode_rh_repo_description }}"
+    baseurl: "{{ vscode_rh_repo_url }}"
+    gpgcheck: "{{ vscode_rh_repo_gpgcheck }}"
+    gpgkey: "{{ vscode_rh_gpg_key }}"
+    enabled: "{{ vscode_rh_repo_enabled }}"
+    file: "{{ vscode_rh_repo_filename }}"
+    state: "{{ vscode_repo_state }}"
+
+- name: Redhat family | Installing {{ vscode_app_name }}
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ vscode_app_name }}"
+    state: "{{ vscode_app_state }}"
+    update_cache: true
