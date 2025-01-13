@@ -1,0 +1,9 @@
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: "${MOLECULE_DISTRO:-fedora:39}"
+    pre_build_image: false
+    dockerfile: ../../../../tests/common/Dockerfile.js

@@ -9,3 +9,10 @@
       ansible.builtin.include_role:
         name: vscode
         tasks_from: configure
+  ### TODO:Docker/Podman
+  ### Firefox
+  ### Tuta
+  ### Vpn
+  ### Hardening
+  ### Gnome-Tooling
+  ### Key-Bindings
