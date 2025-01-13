@@ -1,8 +1,12 @@
 # kics-scan disable=555ab8f9-2001-455e-a077-f2d0f41e2fb9
 name: ci
 on:
+  push:
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
+    branches:
+      - main
 jobs:
   lint:
     name: Ansible Lint
