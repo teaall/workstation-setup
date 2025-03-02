@@ -1,9 +1,8 @@
 # Personal Workstation Setup
 
-blablablabla
+This repository contains ansible configuration to set up my personal workstation environment, including essential software, tools, and system configurations.
 
-## Supported Distros
-- Fedora
-- MacOs
+## Supported Versions
 
-## Developing
+- Fedora 38
+- Fedora 39
