@@ -6,8 +6,8 @@
 
 - name: Copy VS Code settings.json
   ansible.builtin.copy:
-    src: vsc_user_settings.json # Path to your local settings.json
-    dest: "/home/teaall/.config/Code/User/settings.json"
+    src: vsc_user_settings.json
+    dest: "{{ ansible_env.HOME }}.config/Code/User/settings.json"
     mode: "0644"
 
 - name: Install VS Code extension
