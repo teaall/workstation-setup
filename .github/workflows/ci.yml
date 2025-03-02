@@ -41,11 +41,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Run Unit Tests
-        uses: devcontainers/ci@v0.3
+      - uses: devcontainers/ci@v0.3
         with:
           runCmd: pytest -rP
           env: |
             MOLECULE_DISTRO=${{ matrix.distro }}
             MOLECULE_NO_LOG=false
+
+  unit-tests-result:
+    name: Unit Test Roles Result
+    runs-on: ubuntu-24.04
+    needs: [unit-test]
+    steps:
+      - if: ${{ needs.unit-test.result != 'success' }}
+        run: exit 1
+      - run: exit 0
